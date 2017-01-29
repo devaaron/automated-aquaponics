@@ -1,0 +1,165 @@
+				{
+			"JSChart" : {
+				"datasets" : [
+					{
+						"type" : "line",
+						"data" : [
+							{
+								"unit" : "10",
+								"value" : "2"
+							},
+							{
+								"unit" : "15",
+								"value" : "0"
+							},
+							{
+								"unit" : "18",
+								"value" : "3"
+							},
+							{
+								"unit" : "19",
+								"value" : "6"
+							},
+							{
+								"unit" : "20",
+								"value" : "8.5"
+							},
+							{
+								"unit" : "25",
+								"value" : "10"
+							},
+							{
+								"unit" : "30",
+								"value" : "9"
+							},
+							{
+								"unit" : "35",
+								"value" : "8"
+							},
+							{
+								"unit" : "40",
+								"value" : "5"
+							},
+							{
+								"unit" : "45",
+								"value" : "6"
+							},
+							{
+								"unit" : "50",
+								"value" : "2.5"
+							}
+						]
+					}
+				],
+				"optionset" : [
+					{
+						"set" : "setAxisColor",
+						"value" : "'#656565'"
+					},
+					{
+						"set" : "setAxisNameColor",
+						"value" : "'#4A4A4A'"
+					},
+					{
+						"set" : "setAxisNameFontSize",
+						"value" : "10"
+					},
+					{
+						"set" : "setAxisNameX",
+						"value" : "'Horizontal axis values'"
+					},
+					{
+						"set" : "setAxisNameY",
+						"value" : "'Vertical axis'"
+					},
+					{
+						"set" : "setAxisPaddingBottom",
+						"value" : "60"
+					},
+					{
+						"set" : "setAxisPaddingLeft",
+						"value" : "180"
+					},
+					{
+						"set" : "setAxisPaddingRight",
+						"value" : "170"
+					},
+					{
+						"set" : "setAxisPaddingTop",
+						"value" : "65"
+					},
+					{
+						"set" : "setAxisValuesColor",
+						"value" : "'#656565'"
+					},
+					{
+						"set" : "setAxisValuesNumberX",
+						"value" : "6"
+					},
+					{
+						"set" : "setGrid",
+						"value" : "false"
+					},
+					{
+						"set" : "setLabelY",
+						"value" : "[0, 'Low']"
+					},
+					{
+						"set" : "setLabelY",
+						"value" : "[5, 'Medium']"
+					},
+					{
+						"set" : "setLabelY",
+						"value" : "[10, 'High']"
+					},
+					{
+						"set" : "setLineColor",
+						"value" : "'#8638D5'"
+					},
+					{
+						"set" : "setShowYValues",
+						"value" : "false"
+					},
+					{
+						"set" : "setTitle",
+						"value" : "'A customized chart'"
+					},
+					{
+						"set" : "setTitleColor",
+						"value" : "'#505050'"
+					},
+					{
+						"set" : "setSize",
+						"value" : "616, 321"
+					},
+					{
+						"set" : "setTextPaddingBottom",
+						"value" : "20"
+					},
+					{
+						"set" : "setTextPaddingLeft",
+						"value" : "120"
+					},
+					{
+						"set" : "setTextPaddingTop",
+						"value" : "15"
+					},
+					{
+						"set" : "setFlagRadius",
+						"value" : "6"
+					},
+					{
+						"set" : "setTooltip",
+						"value" : "[25, 'Tooltip for value 25 on X axis']"
+					},
+					{
+						"set" : "setTooltip",
+						"value" : "[40, 'Tooltip for value 40 on X axis']"
+					},
+					{
+						"set" : "setBackgroundImage",
+						"value" : "'chart_bg.jpg'"
+					}
+				]
+			}
+		}

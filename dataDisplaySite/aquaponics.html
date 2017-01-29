@@ -1,0 +1,233 @@
+<html>
+
+	<head>
+		<title>Aquaponics</title>
+		<style>
+		#sidebar {
+			width: 200px;
+			height: 100%;
+			position: fixed;
+			margin: 25px;
+		}
+
+		#main {
+			left: 250px;
+			height: 100%;
+			position: fixed;
+			overflow: auto;
+		}
+		footer {
+			font-style: italic;
+		}
+		h3 {
+			font-style: italic;
+		}
+		}
+		</style>
+		
+		<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type ="text/javascript">
+		var report = function()
+		{
+			$.getJSON('./repToday.txt', function(data){
+				console.log('successful read');
+				var output = "<font size = 2";
+				output+="<p>";
+				output+="<hX>Current Readings:</hX>";
+				output+="<ul>";
+				output+="<li>" + "Temperature near plants: " + data.tempPlant+"</li><br>";
+				output+="<li>"+ "Water depth: " + data.depth +  "</li><br>";
+				output+="<li>" + "Humidity near lamps: "+ data.humidityLamp+"</li><br>";
+				output+="<li>" + "Temperature near lamps: " + data.tempLamp+"</li><br>";
+				output+="<li>" + "Light: " + data.light+"</li><br>";
+				output+="</ul>";
+				output+="</p>";
+				if (output.length > 0)
+					document.getElementById("reportHolder").innerHTML = output;
+				});
+		}; 
+		</script>
+	</head>
+	<body style="background-color:LightSkyBlue;">
+		<div id="sidebar">
+				<h1>
+				<font size = 3>
+					<p>Useful Links:</p>
+					<a href="https://docs.google.com/document/d/1Nk-uySjtlderSrB-fZL5zADzmB8OyWSlF0QRoI-1UlM/pub
+"> micro-aquaponics how-to-guide </a>
+					<br>
+					<a href="http://www.arduino.cc/"> arduino.cc </a>
+					<br>
+					<a href="http://www.raspberrypi.org/"> raspberrypi.org </a>
+					<br>
+					<a href="http://www.jscharts.com/how-to-use"> jscharts </a>
+					<br>
+					<a href="https://pypi.python.org/pypi/pyserial"> pySerial </a>
+					
+					<p class ="paragraph">See the Code:</p>
+					<a href="./aquaponics_NO_pump.ino"> aquaponics.ino </a>
+					<br>
+					<a href="./aqp/report.py"> report.py </a>
+					<br>
+					<a href="./aqp/hourlyReport.sh"> hourlyReport.sh </a>
+					<br>
+					<a href="./aqp/dailyReport.sh"> dailyReport.sh </a>
+					<br>
+					<a href="./aqp/DHT11"> DHT11 sensor library </a>
+					<br>
+	
+					<p>Watch the Plant Growth!</p>
+					<a href="http://poojachopragoel.com/wp-content/uploads/2013/02/coming-soon.jpg"> time-lapse </a>
+					<br>
+					<div id="reportHolder">
+				</font>
+				</h1>
+		</div>
+		<div id = "main">
+		<font size=4>
+			<strong>
+				<center>
+					<h1>
+						<p>Micro-Aquaponics</p>
+					</h1>
+				</center>
+			</strong>
+			<font size = 3>
+			<p> What is Micro-Aquaponics?
+			</p>
+
+			<font size = 3>
+			<p>  An automated aquaponics system that collects and analyzes data using the Arduino Uno microcontroller and the Raspberry Pi microprocessor with the aim of intelligently managing the ecological balance of aquaculture and hydroponics.
+			</p>
+		<br><br><br>
+		<img src = "./aqua1Scaled.jpg" alt = "Young Plants" width = 40% height = 40% align = "center">
+		<img src = "./aqua2Scaled.jpg" alt = "Young Plants" width = 40% height = 40% align = "center">
+		<img src = "./aqua3Scaled.jpg" alt = "Young Plants" width = 40% height = 40% align = "center">
+		<img src = "./aqua4Scaled.jpg" alt = "Young Plants" width = 40% height = 40% align = "center">
+		<h2>
+			<br>
+			<font size = 3>
+				<p>Take a look at the sensor readings:</p>
+				<font size = 2>
+				<br>
+				<p>Daily Light Maximum:</p>
+				<div id="lightMaxChart">Loading...</div>
+				<script type = "text/javascript" src = "./jscharts.js"></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('lightMaxChart', 'line');
+					
+					myChart.setTitle('Maximum Light');
+					myChart.setTitleColor('#5555AA');
+					myChart.setDataJSON("./aqp/light.json");
+					myChart.setAxisValuesSuffixX("s");
+					myChart.draw();
+				};
+				</script>
+				<h3><p>
+					x = seconds since start of project
+				<br>
+					y = maximum value of analog input
+				</p></h3>
+				<br>
+				<p>Hourly Temperature at Plant (Fahrenheit):</p>
+				<div id="tempPlantChart">Loading...</div>
+				<script type = "text/javascript" src = ./jscharts.js></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('tempPlantChart', 'line');
+					myChart.setTitle('Plant Temperature');
+					myChart.setTitleColor('#5555AA');	
+					myChart.setDataJSON("./aqp/tempPlant.json");
+					myChart.setAxisValuesSuffixX("s");
+					myChart.draw();
+				}
+				</script>
+				<h3>
+					x = seconds since start of project
+				<br>
+					y = temperature value in Fahrenheit
+				</h3>
+				<!--<p>Water Depth Level:</p>-->
+				<!--<div id="depthChart">Loading...</div>->
+				<script type = "text/javascript" src = ./jscharts.js></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('depthChart', 'line');
+					myChart.setDataJSON("./aqp/depth.json");
+					myChart.setTitle('Depth Level');
+					myChart.setTitleColor('#5555AA');
+					myChart.setAxisValuesSuffixX("s");
+					myChart.setAxisValuesSuffixY("mm");
+					myChart.draw();
+				}
+				</script>
+				<h3>
+					x = seconds since start of project
+				<br>
+					y = distance from the sensor to the water 
+				</h3>
+				<p>Maximum Daily Temperature Near the Lamps (Fahrenheit):</p>
+				<div id="tempLampMaxChart">Loading...</div>
+				<script type = "text/javascript" src = ./jscharts.js></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('tempLampMaxChart', 'line');
+					myChart.setDataJSON("./aqp/tempLamp.json");
+					myChart.setTitle('Maximum Temperature');
+					myChart.setTitleColor('#5555AA');
+					myChart.setAxisValuesSuffixX("s");
+					myChart.draw();
+				}
+				</script>
+				<h3>
+					x = seconds since start of project
+				<br>
+					y = maximum temperature value in Fahrenheit per day
+				</h3>
+				<p>Hourly Humidity Near the Lamps:</p>
+				<div id = "humidityLampChart">Loading...</div>
+				<script type = "text/javascript" src = ./jscharts.js></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('humidityLampChart', 'line');
+					myChart.setDataJSON("./aqp/humidityLamp.json");
+					myChart.setTitle('Humidity');
+					myChart.setTitleColor('#5555AA');
+					myChart.setAxisValuesSuffixX("s");
+					myChart.draw();
+				};
+				</script>
+				<h3>
+					x = seconds since start of project
+				<br>
+					y = temperature value in Fahrenheit
+				</h3>
+				<!--<p>Average Daily Moisture Levels:</p>-->
+				<!--<div id = "soilMoistureChart">Loading...</div>-->
+				<script type = "text/javascript" src = ./jscharts.js></script>
+				<script type = "text/javascript">
+				{
+					var myChart = new JSChart('soilMoistureChart', 'line');
+					myChart.setDataJSON("./aqp/moisture.json");
+					myChart.setTitle('Average Moisture');
+					myChart.setTitleColor('#5555AA');
+					myChart.setAxisValuesSuffixX("s");
+					myChart.draw();
+				};
+				</script>
+				<h3>
+					x = seconds since start of project
+				<br>
+					y = average daily moisture levels from per day
+				</h3>
+				<br><br><br>
+	</h2>
+	<footer>
+	<font size = 2>
+		<p>Created by: Aaron Snowden</p>
+		<p>Email me: am-snowden@wiu.edu</p>
+	</footer>
+	</div>
+	</body>
+</html>

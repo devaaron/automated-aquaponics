@@ -1,0 +1,39 @@
+]
+			}
+		],
+		"optionset" : [
+			{
+				"set" : "setLineColor",
+				"value" : "'#8D9386'"
+			},
+			{
+				"set" : "setLineWidth",
+				"value" : "4"
+			},
+			{
+				"set" : "setTitleColor",
+				"value" : "'#7D7D7D'"
+			},
+			{
+				"set" : "setAxisColor",
+				"value" : "'#9F0505'"
+			},
+			{
+				"set" : "setGridColor",
+				"value" : "'#a4a4a4'"
+			},
+			{
+				"set" : "setAxisValuesColor",
+				"value" : "'#333639'"
+			},
+			{
+				"set" : "setAxisNameColor",
+				"value" : "'#333639'"
+			},
+			{
+				"set" : "setTextPaddingLeft",
+				"value" : "0"
+			}
+		]
+	}
+}

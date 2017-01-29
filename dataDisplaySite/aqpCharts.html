@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>Aquaponics</title>
+		<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type ="text/javascript">
+		var report = function()
+		{
+			$.getJSON('./repToday.txt', function(data){
+				console.log('successful read');
+				var output = "";
+				output+="<p>";
+				output+="<hX>RECENT REPORT:</hX>";
+				output+="<ul>";
+				output+="<li>" + "Temperature at the plants: " + data.tempPlant+"</li>";
+				output+="<li>"+ "Water depth: " + data.depth +  "</li>";
+				output+="<li>" + "Humidity at the lamps: "+ data.humidityLamp+"</li>";
+				output+="<li>" + "Temperature at the lamps: " + data.tempLamp+"</li>";
+				output+="<li>" + "Current light sensor reading: " + data.light+"</li>";
+				output+="</ul>";
+				output+="</p>";
+				if (output.length > 0)
+					document.getElementById("reportHolder").innerHTML = output;
+				
+					document.getElementById("reportHolder").innerHTML += "<button onclick='close()'>Close</button>";
+				});
+		}; 
+		</script>
+		<script type="text/javascript" src="./jscharts.js"></script>
+		<script type ="text/javascript">
+		var chartTempPlant = function()
+		{
+			var myChart = new JSChart('chartid', 'line');
+			myChart.setDataJSON("./aqp/tempPlant.txt");
+			myChart.draw();
+			
+			document.getElementById("chartTempPlant").innerHTML += "<button onclick='close()'>Close</button>";
+			
+			document.getElementById("chartTempPlant").innerHTML += "<button onclick='close()'>Close</button>";
+		};
+			var chartDepth = function()
+		{
+			var myChart = new JSChart('chartid', 'line');
+			myChart.setDataJSON("./aqp/depth.txt");
+			myChart.draw();
+			
+			document.getElementById("chartDepth").innerHTML += "<button onclick='close()'>Close</button>";
+			
+			document.getElementById("chartDepth").innerHTML += "<button onclick='close()'>Close</button>";
+		};
+			var chartHumidityLamp = function()
+		{
+			var myChart = new JSChart('chartid', 'line');
+			myChart.setDataJSON("./aqp/humidityLamp.txt");
+			myChart.draw();
+			
+			document.getElementById("chartHumidityLamp").innerHTML += "<button onclick='close()'>Close</button>";
+			
+			document.getElementById("chartHumidityLamp").innerHTML += "<button onclick='close()'>Close</button>";
+		};
+			var chartTempLamp = function()
+		{
+			var myChart = new JSChart('chartid', 'line');
+			myChart.setDataJSON("./aqp/tempLamp.txt");
+			myChart.draw();
+			
+			document.getElementById("chartTempLamp").innerHTML += "<button onclick='close()'>Close</button>";
+			
+			document.getElementById("chartTempLamp").innerHTML += "<button onclick='close()'>Close</button>";
+		};
+			var chartLight = function()
+		{
+			var myChart = new JSChart('chartid', 'line');
+			myChart.setDataJSON("./aqp/light.txt");
+			myChart.draw();
+			
+			document.getElementById("chartLight").innerHTML += "<button onclick='close()'>Close</button>";
+			
+			document.getElementById("chartLight").innerHTML += "<button onclick='close()'>Close</button>";
+		};
+		<!--var chartTempPlant-->
+		</script>
+	</head>
+
+	<body style="background-color:LightSkyBlue;">
+		<font size=4>
+			<strong>
+				<center>
+					<h1>
+						<p>Micro-Aquaponics</p>
+					</h1>
+				</center>
+			</strong>
+		<br><br><br>
+		<img src = "http://www.wiu.edu/users/ams231/aquaponics/aqua1.jpg" width = "30%" height = "30%" alt = "Young Plants">
+		<img src = "http://www.wiu.edu/users/ams231/aquaponics/aqua2.jpg" width = "30%" height = "30%" alt = "Young Plants">
+		<h2>
+			<font size = 2>
+			<p>Click to see the most recent readings:</p>
+			<button onclick='report()'>Click for Report</button>
+			<div id = "reportHolder"></div>
+			<button onclick='chart()'>Click for Chart</button>
+			<div id="chartcontainer"></div>
+				<script type="text/javascript">
+
+				</script>
+				
+		<br><br><br>
+			<p>Take a look at what I've found:</p>
+			<p></p>
+		<br><br><br>
+			<p>Consider some links that I found useful:</p>
+				<a href="http://www.arduino.cc/"> arduino.cc </a>
+				<br>
+				<a href="http://www.raspberrypi.org/"> raspberrypi.org </a>
+		</h2>
+		</font size=2>
+	</body>
+		<br><br><br>
+	<footer>
+		<p>Created by: Aaron Snowden</p>
+		<p>Email me: am-snowden@wiu.edu</p>
+	</footer>
+</html>

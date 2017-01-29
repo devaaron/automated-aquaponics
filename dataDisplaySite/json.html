@@ -1,0 +1,23 @@
+<html>
+<head>
+	<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+		$.getJSON( "ajax.text.json", function( data ) {
+		  var items = [];
+		  $.each( data, function( key, val ) {
+			items.push( "<li id='" + key + "'>" + val + "</li>" );
+		  });
+		 
+		  $( "<ul/>", {
+			"class": "my-new-list",
+			html: items.join( "" )
+		  }).appendTo( "body" );
+		  
+			.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+			});
+		});
+	</script>
+</head>
+</html>

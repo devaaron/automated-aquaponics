@@ -1,0 +1,3 @@
+List of changes for website:
+
+1: Change water depth to measure the corresponding depth from the ground (total - measurement = depth)

@@ -1,0 +1,8 @@
+{
+    "depth": "1", 
+    "humidityLamp": "0", 
+    "light": "0", 
+    "pH": "0", 
+    "tempLamp": "32", 
+    "tempPlant": "388"
+}
